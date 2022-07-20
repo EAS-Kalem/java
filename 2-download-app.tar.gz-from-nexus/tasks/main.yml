@@ -1,0 +1,18 @@
+---
+- name: create dir
+  ansible.builtin.command:
+    cmd: mkdir /home/usr/local/java-api/
+
+- name: Download app.jar
+  ansible.builtin.get_url:
+    url: https://nexusrm.easlab.co.uk/repository/eas-hosted-bin/server.jar
+    dest: /usr/local/java-api/
+    mode: '0777'
+    validate_certs: no
+
+- name: Set permissions
+  ansible.builtin.command:
+    cmd: chmod 0777 /usr/local/java-api/server.jar
+    
+
+

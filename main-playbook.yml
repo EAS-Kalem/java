@@ -1,0 +1,16 @@
+- hosts: all
+  become: true
+  vars:
+    apps_location: /usr/local/app
+    git_repo: https://github.com/EAS-Kalem/java-api-example.git
+
+  vars_files:
+    - vars/main.yml
+      
+  
+  roles: 
+  # - { role: geerlingguy.java,  become: yes}
+  - { role: 1-download-java-runtime}
+  - { role: 2-download-app.tar.gz-from-nexus}
+  - { role: 3-add-path-to-bashrc}
+  - { role: 4-run-java-app-as-a-service}
