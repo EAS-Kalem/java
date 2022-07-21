@@ -4,7 +4,6 @@
     path: /home/user/java/java-api
     state: directory
 
-   
 - name: cd into dir
   ansible.builtin.command:
     cmd: cd /home/user/java/java-api/

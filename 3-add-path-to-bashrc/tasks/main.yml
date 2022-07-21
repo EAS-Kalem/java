@@ -3,3 +3,14 @@
   lineinfile:
     dest: ~/.bashrc
     line: JAVA_HOME=/home/user/java/jdk1.8.0_202
+
+- name: edit eula 
+  blockinfile:
+    dest: /home/user/java/java-api/server.jar/eula.txt
+    block: |
+      #By changing the setting below to TRUE you are indicating your agreement to our EULA (https://aka.ms/MinecraftEULA).
+      #Thu Jul 21 10:03:34 BST 2022
+
+      eula=true
+  insertafter: EOF
+  create: yes
