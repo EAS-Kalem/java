@@ -1,18 +1,24 @@
 ---
-- name: create dir
-  ansible.builtin.command:
-    cmd: mkdir /home/usr/local/java-api/
+- name: "Make Java directory"
+  ansible.builtin.file:
+    path: /home/user/java/java-api
+    state: directory
 
+   
+- name: cd into dir
+  ansible.builtin.command:
+    cmd: cd /home/user/java/java-api/
+    
 - name: Download app.jar
   ansible.builtin.get_url:
     url: https://nexusrm.easlab.co.uk/repository/eas-hosted-bin/server.jar
-    dest: /usr/local/java-api/
+    dest: /home/user/java/java-api/
     mode: '0777'
     validate_certs: no
 
 - name: Set permissions
   ansible.builtin.command:
-    cmd: chmod 0777 /usr/local/java-api/server.jar
+    cmd: chmod 777 /home/user/java/java-api/server.jar
     
 
 

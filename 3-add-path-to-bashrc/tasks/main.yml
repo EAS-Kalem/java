@@ -2,4 +2,4 @@
 - name: Add path to bashrc
   lineinfile:
     dest: ~/.bashrc
-    line: JAVA_HOME=/usr/java/jdk1.8.0_202
+    line: JAVA_HOME=/home/user/java/jdk1.8.0_202

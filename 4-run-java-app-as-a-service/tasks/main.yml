@@ -10,7 +10,7 @@
       [Service]
       Type=simple
       User=root
-      ExecStart=/usr/bin/java -Xmx1024M -Xms1024M -jar /home/user/java/server.jar nogui
+      ExecStart=/home/user/java/jdk-18_linux-x64_bin.rpm/bin -Xmx1024M -Xms1024M -jar /home/user/local/java-api/server.jar nogui
       Restart=on-abort
 
 
@@ -18,14 +18,14 @@
       WantedBy=multi-user.target
     insertafter: EOF
     create: yes
-    
+
 - name: daemon-reload 
   command: systemctl daemon-reload
 
 - name: enable myapp on start up
-  command: systemctl enable java-hello-app.service
+  command: systemctl enable java-server.service
 
-- name: reloading java-hello-app.service
+- name: reloading java-server.service
   service:
-    name: java-hello-app.service
+    name: java-server.service
     state: restarted
